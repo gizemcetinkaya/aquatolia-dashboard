@@ -1,0 +1,624 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background: #F5F7FA;
+	height: 100%;
+}
+.container {
+    max-width: 5000px !important;
+    margin: 0 auto;
+}
+/*======================================
+    Header & Sidebar CSS
+========================================*/
+/* Admin Menu */
+.admin-menu {
+	@apply bg-white overflow-scroll border-r border-borderColor;
+	scrollbar-width: none;
+	transition: all 0.3s ease;
+}
+.logo {
+	@apply flex items-center justify-between min-h-[100px] pl-[40px];
+}
+.sherah-dashboard-menu {
+	@apply flex flex-col gap-0.5;
+}
+.menu-bar li {
+	@apply relative;
+	transition: all 0.3s ease;
+}
+.menu-bar__name {
+	@apply relative;
+}
+.menu-bar li .menu-bar__text i{
+	transition:all 0.3s ease;
+}
+.menu-bar li:hover .menu-bar__name,
+.menu-bar li.active  .menu-bar__name{
+	@apply text-primary;
+} 
+.menu-bar li.active-icon:before{
+	@apply opacity-100 visible;
+}
+.menu-bar li a {
+	@apply font-normal text-lg text-primary leading-5 w-full relative flex items-center justify-between pr-10 pl-5 py-4 rounded-tl-[100px] rounded-bl-[100px] bg-white2;
+}
+.menu-bar li a.active{
+	@apply bg-white2;
+}
+.menu-bar li a.collapsed{
+	color:#2F3032;
+	background:transparent;
+}
+.menu-bar li ul li a {
+	@apply text-lg text-white py-2.5 bg-transparent;
+}
+.menu-bar li ul li a span {
+	color: #878F9A !important;
+}
+.menu-bar li ul li a:hover span,
+.menu-bar li ul li a:hover{
+	@apply text-primary !important;
+}
+.menu-bar li ul li a img {
+	max-width: 17px;
+}
+.menu-bar li ul {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.menu-bar__text {
+  position: relative;
+}
+.menu-bar__text .sherah-menu-icon {
+	margin-right: 15px;
+	padding: 0;
+	text-align: center;
+	border-radius: 100%;
+	display: inline-block;
+	transition: all 0.3s ease;
+	color: #374557;
+}
+.menu-bar__text .sherah-menu-icon .sherah-svg-icon {
+	width: 21px;
+	height: 21px;
+	fill: currentColor;
+}
+.sherah-dashboard-menu .collapsed .sherah-menu-icon .sherah-svg-icon{
+	color: #374557;
+}
+.menu-bar li .sherah-menu-icon .sherah-svg-icon,
+.menu-bar li:hover .collapsed  .sherah-menu-icon .sherah-svg-icon{
+	@apply text-primary;
+}
+.menu-bar img {
+	margin-right: 10px;
+}
+.logout-button {
+	margin-top: 40px;
+}
+.logout-button .sherah-btn {
+	@apply bg-primary flex px-1.5 py-3.5 gap-2.5 rounded items-center justify-between text-xl text-white;
+}
+.logout-button__text {
+	@apply flex gap-2.5 items-center;
+}
+.logout-button .sherah-btn:hover{
+	background-color:#101324;
+}
+.logout-button .sherah-btn span {
+	@apply text-lg font-bold;
+}
+.sherah-header__inner {
+	@apply flex items-center;
+}
+.sherah-header__middle {
+	@apply border-borderColor flex items-center justify-between gap-6 w-full h-[100px] pl-[370px] pr-[40px];
+}
+.sherah-header__form-inner {
+	width: 340px;
+	position: relative;
+}
+.sherah-header__form-inner input {
+	@apply w-full text-sm rounded-md h-[52px] py-0 pr-[60px] pl-[20px];
+	background: #F3F4F7;
+}
+.search-btn {
+	@apply absolute p-0 border-none bg-transparent rounded rounded-tl-none rounded-bl-none w-14 h-[92%] top-[4%] right-[1%];
+}
+.sherah-header__form .search-btn {
+	@apply text-primary;
+}
+.sherah-header__form .search-btn svg {
+  @apply fill-primary inline;
+}
+.sherah-header__group {
+	@apply flex items-center justify-end gap-6;
+}
+.sherah-header__right {
+	@apply flex items-center justify-end gap-9;
+}
+.sherah-header__group button {
+	@apply border-none shadow-none bg-none p-0 m-0;
+}
+.sherah-header__message--animate {
+	@apply flex rounded-full absolute items-center justify-center w-4 h-4 top-[-8px] right-[-8px] animate-pulse;
+}
+.sherah-header__author {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+.sherah-header__dropmenu {
+	text-align: center;
+	border-radius: 100%;
+	position: relative;
+	cursor: pointer;
+}
+.sherah-header__dropmenu i {
+  font-size: 20px;
+}
+.sherah-header__count {
+	@apply absolute w-[20px] h-[20px] inline-block rounded-full text-white text-sm leading-5 top-[-8px] right-[-8px];
+}
+.sherah-header__author-img {
+	max-width: 62px;
+}
+.sherah-header__author--text {
+	font-weight: 400;
+	color: #5a5a5a;
+	font-size: 12px;
+}
+.sherah-header__author--info {
+	display: flex;
+	align-items: baseline;
+	gap: 5px;
+}
+.sherah-header__author--title {
+	font-size: 16px;
+	font-weight: 700;
+	align-items: start;
+}
+.sherah-header__author-img img {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	min-width: 45px !important;
+	min-height: 45px !important;
+}
+.sherah-header {
+	@apply sticky top-0 flex items-center z-[5000] bg-white;
+}
+/* Chat Message */
+.sherah-dropdown-card_list.sherah-chatbox__list li {
+	padding-left: 0;
+}
+
+.sherah-dropdown-card_list.sherah-chatbox__list .sherah-chatbox__author-title {
+	font-size: 16px;
+	margin-bottom: 8px;
+	font-weight: 700;
+}
+.sherah-dropdown-card_list.sherah-chatbox__list .sherah-chatbox__author-desc {
+	font-size: 14px;
+}
+/* Balance Hover */
+.sherah-dropdown-card {
+	@apply absolute left-1/2 top-16 bg-white z-[100] w-[340px] rounded-md ml-[-200px] translate-y-[50px] opacity-0 invisible transition-all duration-[0.4s] border border-borderColor;
+}
+.sherah-dropdown-card__title {
+	@apply font-bold text-lg border-b border-borderColor px-8 py-5;
+}
+.sherah-dropdown-arrow {
+	@apply stroke-borderColor fill-white absolute top-[-22px] right-[76px];
+}
+.sherah-dropdown-card_list {
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+}
+.sherah-dropdown-card_list li {
+	@apply flex items-center justify-between pb-4 mb-4 gap-4 border-none;
+}
+.sherah-dropdown-card_list li:last-child {
+	border: none;
+	padding-bottom: 0;
+	margin: 0;
+}
+.sherah-paymentm__name {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.sherah-paymentm__icon {
+	@apply flex text-center rounded-full justify-center items-center border-[6px] border-primary bg-primary w-[86px] h-[86px];
+}
+.sherah-paymentm__icon.sherah-paymentm__icon--notify {
+    width: 48px;
+    height: 48px;
+    border: none;
+    min-width: 48px;
+    min-height: 48px;
+}
+.sherah-paymentm__text.sherah-paymentm__text--notify {
+    font-size: 16px;
+    color: #878F9A;
+}
+.sherah-dropdown-card-info {
+	@apply flex items-center gap-5;
+}
+.sherah-dropdown-card__img {
+	@apply flex items-center text-center justify-center p-0 rounded-full w-12 h-12 min-w-[48px] min-h-[48px];
+}
+.sherah-dropdown-card__img img {
+	max-width: 25px;
+}
+.sherah-dropdown-card-name {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+}
+.sherah-header__group .sherah-dropdown-card-name {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+}
+.sherah-dropdown-card__sell-all {
+	@apply text-primary bg-white2 w-full text-center block px-0 py-[22px] text-lg font-medium leading-normal;
+}
+
+.sherah-dropdown-card-name:hover,
+.sherah-dropdown-card-name a:hover {
+	@apply text-primary;
+}
+/* Notification Hover */
+.sherah-header__dropmenu:hover .sherah-dropdown-card {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0px);
+}
+.sherah-dropdown-card.sherah-dropdown-card__alarm {
+	text-align: left;
+	left: initial;
+	right: -85px;
+	min-width: 450px;
+}
+.sherah-dropdown-card::before {
+	right: 75px;
+	left: initial;
+}
+.sherah-dropdown-card__alarm .sherah-dropdown-card-info {
+	align-items: flex-start;
+}
+.sherah-notifications {
+	padding: 30px;
+	border-radius: 8px;
+}
+.sherah-chatbox__inner {
+	@apply flex justify-between items-center w-full pt-[14px] pb-[14px];
+    transition: all 0.3s ease;
+}
+.sherah-chatbox__list.sherah-chatbox__list__header .sherah-chatbox__inner {
+	padding: 0;
+	margin: 0;
+	border-bottom: 0;
+}
+
+.sherah-chatbox__list.sherah-chatbox__list__header li {
+	background: none;
+}
+.sherah-chatbox__list.sherah-chatbox__list__header li .sherah-chatbox__author-desc {
+	line-height: initial;
+	padding: 0;
+}
+.sherah-chatbox__author {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.sherah-chatbox__author-img {
+    position: relative;
+}
+.sherah-chatbox__author-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    min-width: 40px;
+    min-height: 40px;
+}
+.sherah-chatbox__author-online {
+    width: 12px;
+    height: 12px;
+    background: #27AE60;
+    position: absolute;
+    border-radius: 100%;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #fff;
+}
+.sherah-chatbox__author-online.author-not-online {
+    background: #C5C5C5;
+}
+.sherah-chatbox__author-online.author-is-busy {
+    background-color: #FF6767;
+}
+.sherah-chatbox__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.sherah-chatbox__unread {
+	@apply rounded-full inline-block text-center text-white bg-primary w-[20px] h-[20px] leading-5 text-xs;
+}
+/* sherah Profile Hover */
+.sherah-header__author:hover .sherah-dropdown-card__profile {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0px);
+}
+.sherah-dropdown-card.sherah-dropdown-card__profile {
+	right: 70px;
+	max-width: 240px;
+	top: 68px;
+	left: initial;
+}
+.sherah-dropdown-card.sherah-dropdown-card__profile .sherah-dropdown-arrow {
+	right: 20px;
+}
+.sherah-header__group .sherah-dropdown-card-name a {
+	@apply font-normal;
+}
+.sherah-dropdown-card.sherah-dropdown-card__profile .sherah-dropdown-card-name a {
+	font-size: 18px;
+}
+.sherah-notifications__title span {
+	@apply font-medium;
+}
+.close-icon {
+	@apply bg-primary text-center cursor-pointer relative leading-7 rounded min-w-[30px] w-[30px] h-[30px];
+}
+.close-icon svg{
+	display: inline;
+	fill:#fff;
+}
+.close-icon:hover svg {
+	fill: #fff;
+}
+.close-icon:hover {
+	@apply bg-primary;
+}
+.sherah-smenu {
+	position: fixed;
+	left: 0;
+	z-index: 6000;
+	height: 100%;
+	transition: all 0.3s ease;
+	width: 290px;
+	transform: translateX(0%);
+	top: 0;
+}
+.sherah-smenu, .sherah-adashboard, .sherah-header {
+	transition: all 0.3s;
+}
+
+.sherah-smenu.sherah-close{
+	width:100%;
+	opacity:1;
+	visibility:visible;
+}
+.sherah-smenu.sherah-close .sherah__toggle {
+	position: relative;
+	margin: 0;
+}
+.sherah-smenu.sherah-close .admin-menu {
+	padding: 0;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.sherah-smenu.sherah-close  .logout-button {
+	margin-top: 20px;
+}
+.admin-menu::-webkit-scrollbar {
+	display: none;
+}
+.sherah-adashboard {
+	margin-left: 290px;
+	padding-right: 25px;
+	padding-left: 25px;
+}
+.sherah-adashboard {
+	padding-bottom: 50px;
+}
+
+@media only screen and (min-width: 1279px) and (max-width: 1550px) {
+	.sherah-header__form-inner {
+		width: 270px;
+		position: relative;
+		max-width: 100%;
+	}
+	.sherah-header__right {
+		gap: 30px;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__alarm {
+		min-width: 345px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 1278px) {
+	.sherah-header__form-inner {
+		width: 175px;
+		position: relative;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__profile {
+		top: 75px !important;
+	}
+	.sherah-header__left{
+		display:none;
+	}
+	.sherah-header__author-img {
+		max-width: 52px;
+	}
+	.sherah-header__author-img img {
+		width: 52px;
+		height: 52px;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__alarm {
+		min-width: 345px;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 992px) {
+	.sherah-smenu .logo img {
+		max-width: 130px;
+	}
+	.sherah-smenu .logo {
+		margin: 0;
+		min-height: 80px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.sherah-smenu .menu-bar li a {
+		font-size: 15px;
+		padding: 10px 15px;
+	}
+	.sherah-smenu.sherah-close .admin-menu {
+		overflow: scroll;
+	}
+	.sherah-smenu .menu-bar li ul li a {
+		padding: 8px 15px;
+	}
+}
+
+@media only screen and  (max-width: 767px) {
+	.sherah-header__form-inner {
+		width: 175px;
+		position: relative;
+	}
+	.sherah-header__group {
+		gap: 15px;
+		width: 100%;
+	}
+	.sherah-header__inner {
+		gap: 10px;
+		height: initial;
+	}
+	.sherah-header__left {
+		display: none;
+	}
+	.sherah-header__right {
+		gap: 15px;
+	}
+	.sherah-header__group {
+		gap: 10px;
+	}
+	.sherah-dropdown-card {
+		margin: 0;
+		z-index: 5555;
+		width: 300px;
+		top: 70px;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__profile::before {
+		right: 8px;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__profile {
+		left: initial;
+		right: 0;
+		top: 62px;
+	}
+	.sherah-dropdown-card::before {
+		left: 40px;
+	}
+	.sherah-dropdown-card_list li {
+		gap: 10px;
+		padding-bottom: 5px;
+		margin-bottom: 5px;
+	}
+	.sherah-dropdown-card-name {
+		font-size: 16px;
+	}
+	.sherah-dropdown-card__img img {
+		max-width: 18px;
+	}
+	.sherah-header__author-img {
+		max-width: 50px;
+	}
+	.sherah-header__author-img img {
+		width: 40px;
+		height: 40px;
+	}
+	.sherah-header__zoom,.sherah-header__nav  {
+		display: none;
+	}
+	.sherah-notifications {
+		padding: 20px;
+	}
+
+	.sherah-dropdown-card.sherah-dropdown-card__alarm {
+		right: -90px;
+		min-width: 280px;
+		top: 52px;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__profile .sherah-dropdown-arrow {
+		right: 90px;
+	}
+}
+@media only screen and  (max-width: 400px) {
+	.sherah-dropdown-arrow{
+		display: none;
+	}
+	.sherah-dropdown-card.sherah-dropdown-card__alarm {
+		right: -160px;
+	}
+}
+@media only screen and (min-width: 1279px) and (max-width: 1550px) {
+	.sherah-main__column {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 1279px) and (max-width: 1550px) {
+	.sherah-smenu{
+		width:250px;
+	}
+	.sherah-adashboard {
+		margin-left: 250px;
+	}
+	.sherah-header__middle {
+		padding-left: 290px;
+	}
+}	
+@media only screen and (min-width: 0px) and (max-width: 1278px) {
+	.sherah-smenu {
+		width: 240px !important;
+		transform: translateX(-100%);
+	}
+
+	.sherah-smenu .admin-menu {
+		padding: 15px 15px;
+		padding-top:30px;
+	}
+	.sherah-smenu.sherah-close {
+		transform: translatex(0%);
+	}
+	.close-icon{
+		display:block !important;
+	}
+	.sherah-header__middle {
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+		margin-left: 0 !important;
+		height: 80px;
+	}
+	.sherah-adashboard {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+		margin-left: 0 !important;
+	}
+}
+/*======================================
+   End Header & Sidebar CSS
+========================================*/
